@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a new author</title>
+</head>
+<body>
+<h1>Add a new author:</h1>
+<form method="post" action="/admin/authors">
+    <label>
+        First name
+        <input type="text" name="firstName"/>
+    </label>
+    <label>
+        Last name
+        <input type="text" name="lastName"/>
+    </label>
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>

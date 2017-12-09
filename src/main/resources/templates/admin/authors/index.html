@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage authors</title>
+</head>
+<body>
+    <h1>Authors</h1>
+    <a href="/admin/articles/new">Add a new author</a>
+    <h2>Edit authors:</h2>
+    <ul>
+        <li th:each="author : ${authors}" th:text="${author.fullName()}"></li>
+    </ul>
+</body>
+</html>

@@ -13,6 +13,11 @@ import javax.persistence.Entity;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Article extends AbstractPersistable<Long> {
-    private String title;
+public class Author extends AbstractPersistable<Long> {
+    private String firstName;
+    private String lastName;
+
+    public String fullName() {
+        return firstName + " " + lastName;
+    }
 }
