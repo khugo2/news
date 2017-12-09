@@ -17,12 +17,12 @@ public class AuthorAdminController {
     @GetMapping("/admin/authors")
     public String index(Model model) {
         model.addAttribute("authors", authorRepository.findAll());
-        return "admin/authors/index";
+        return "admin/author/index";
     }
 
     @GetMapping("/admin/authors/new")
     public String createAuthorPage() {
-        return "admin/authors/create";
+        return "admin/author/create";
     }
 
     @PostMapping("/admin/authors")

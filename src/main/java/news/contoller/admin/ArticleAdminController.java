@@ -17,12 +17,12 @@ public class ArticleAdminController {
     @GetMapping
     public String index(Model model) {
         model.addAttribute("articles", articleRepository.findAll());
-        return "admin/articles/index";
+        return "admin/article/index";
     }
 
     @GetMapping("/admin/articles/new")
     public String newArticlePage() {
-        return "admin/articles/create";
+        return "admin/article/create";
     }
 
     @PostMapping("/admin/articles")
