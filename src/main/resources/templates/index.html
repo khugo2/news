@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>News site</title>
+</head>
+<body>
+    <!--/*@thymesVar id="articles" type="news.domain.Article"*/-->
+    <h1>Articles:</h1>
+    <div th:each="article : ${articles}" th:text="${article.title}"></div>
+</body>
+</html>
