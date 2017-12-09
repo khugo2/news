@@ -32,7 +32,7 @@ public class ArticleAdminController {
     @Autowired
     private ArticleService articleService;
 
-    @GetMapping
+    @GetMapping("/admin/articles")
     public String index(Model model) {
         model.addAttribute("articles", articleRepository.findAll());
         return "admin/article/index";

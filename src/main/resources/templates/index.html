@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>News site</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="http://localhost:8000/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <!--/*@thymesVar id="articles" type="news.domain.Article"*/-->
-    <h1>Articles:</h1>
-    <div th:each="article : ${articles}" th:text="${article.title}"></div>
+    <div class="container">
+        <h1 class="logo">• Uutiset •</h1>
+        <div class="header">
+            <a th:each="category : ${categories}" th:text="${category.name}" href="#"></a>
+        </div>
+        <a class="article" th:each="article : ${articles}" th:href="@{/articles/{id}(id=${article.id})}">
+            <img src="http://hs.mediadelivery.fi/img/658/6c8b03165f484a13ab6b559540a0018d.jpg.webp"/>
+            <div class="content">
+                <h2 class="title" th:text="${article.title}"></h2>
+                <h3 class="lead" th:text="${article.lead}"></h3>
+            </div>
+        </a>
+    </div>
 </body>
 </html>

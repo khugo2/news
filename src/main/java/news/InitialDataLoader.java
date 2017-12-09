@@ -1,5 +1,6 @@
 package news;
 
+import news.domain.Article;
 import news.domain.Author;
 import news.domain.Category;
 import news.repository.ArticleRepository;
@@ -27,5 +28,22 @@ public class InitialDataLoader implements ApplicationRunner {
         authorRepository.save(new Author("Author", "2"));
         categoryRepository.save(new Category("Category 1"));
         categoryRepository.save(new Category("Category 2"));
+        categoryRepository.save(new Category("Category 3"));
+        categoryRepository.save(new Category("Category 4"));
+        categoryRepository.save(new Category("Category 5"));
+        categoryRepository.save(new Category("Category 6"));
+        categoryRepository.save(new Category("Category 7"));
+        articleRepository.save(new Article("Suomi haluaa tehostaa ulkovaltojen vakoilulennokkien torjuntaa – sotalaivoillekin havitellaan oikeutta ampua lennokit alas kansainvälisillä vesillä",
+                "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
+                "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
+                categoryRepository.findAll(), authorRepository.findAll()));
+        articleRepository.save(new Article("Suomi haluaa tehostaa ulkovaltojen vakoilulennokkien torjuntaa – sotalaivoillekin havitellaan oikeutta ampua lennokit alas kansainvälisillä vesillä",
+                "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
+                "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
+                categoryRepository.findAll(), authorRepository.findAll()));
+        articleRepository.save(new Article("Suomi haluaa tehostaa ulkovaltojen vakoilulennokkien torjuntaa – sotalaivoillekin havitellaan oikeutta ampua lennokit alas kansainvälisillä vesillä",
+                "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
+                "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
+                categoryRepository.findAll(), authorRepository.findAll()));
     }
 }
