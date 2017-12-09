@@ -1,4 +1,4 @@
-package controller;
+package news.controller;
 
 public class ArticleControllerTest {
 }

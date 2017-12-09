@@ -12,12 +12,24 @@
             <input type="text" name="title"/>
         </label>
         <label>
-            Authors (separated with ,)
-            <input type="text" name="authors"/>
+            Lead
+            <textarea name="lead"></textarea>
         </label>
         <label>
-            Categories (separated with ,)
-            <input type="text" name="categories"/>
+            Text
+            <textarea name="body"></textarea>
+        </label>
+        <label>
+            Authors
+            <select name="authors" multiple>
+                <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.fullName()}"></option>
+            </select>
+        </label>
+        <label>
+            Categories
+            <select name="categories" multiple>
+                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
         </label>
         <input type="submit" value="Submit"/>
     </form>

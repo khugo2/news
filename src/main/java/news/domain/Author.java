@@ -17,6 +17,11 @@ public class Author extends AbstractPersistable<Long> {
     private String firstName;
     private String lastName;
 
+    public Author(Long id) {
+        super();
+        setId(id);
+    }
+
     public String fullName() {
         return firstName + " " + lastName;
     }

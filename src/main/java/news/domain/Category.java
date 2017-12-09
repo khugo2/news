@@ -15,4 +15,9 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class Category extends AbstractPersistable<Long> {
     private String name;
+
+    public Category(Long id) {
+        super();
+        setId(id);
+    }
 }
