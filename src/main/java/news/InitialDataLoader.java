@@ -11,6 +11,13 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Objects;
+
 @Component
 public class InitialDataLoader implements ApplicationRunner {
     @Autowired
@@ -37,19 +44,24 @@ public class InitialDataLoader implements ApplicationRunner {
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
                 categoryRepository.findAll().subList(0, 1), authorRepository.findAll(),
-                new byte[0],
-                ""));
+                getImageFixture("image_1.webp"),
+                "image/webp"));
         articleRepository.save(new Article("Suomi haluaa tehostaa ulkovaltojen vakoilulennokkien torjuntaa – sotalaivoillekin havitellaan oikeutta ampua lennokit alas kansainvälisillä vesillä",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
                 categoryRepository.findAll().subList(1, 2), authorRepository.findAll(),
-                new byte[0],
-                ""));
+                getImageFixture("image_1.webp"),
+                "image/webp"));
         articleRepository.save(new Article("Suomi haluaa tehostaa ulkovaltojen vakoilulennokkien torjuntaa – sotalaivoillekin havitellaan oikeutta ampua lennokit alas kansainvälisillä vesillä",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
                 categoryRepository.findAll().subList(2, 3), authorRepository.findAll(),
-                new byte[0],
-                ""));
+                getImageFixture("image_1.webp"),
+                "image/webp"));
+    }
+
+    private byte[] getImageFixture(String name) throws URISyntaxException, IOException {
+        Path path = Paths.get(getClass().getClassLoader().getResource("fixtures/images/" + name).toURI());
+        return Files.readAllBytes(path);
     }
 }

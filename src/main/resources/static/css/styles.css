@@ -50,6 +50,10 @@ a {
     box-shadow: 0 0 4px rgba(0,0,0,0.15);
 }
 
+.article img {
+    height: 371px;
+}
+
 .article.large {
     margin-left: 0;
     margin-right: 0;

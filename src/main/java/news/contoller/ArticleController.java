@@ -1,5 +1,6 @@
 package news.contoller;
 
+import news.domain.Article;
 import news.domain.Category;
 import news.repository.ArticleRepository;
 import news.repository.CategoryRepository;
@@ -9,6 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 public class ArticleController {
@@ -35,6 +39,13 @@ public class ArticleController {
         model.addAttribute("latestArticles", articleService.findLatestArticles());
         model.addAttribute("popularArticles", articleService.findPopularArticles());
         return "article";
+    }
+
+    @GetMapping("/articles/{id}/image")
+    public void articleImage(@PathVariable Long id, HttpServletResponse response) throws IOException {
+        Article article = articleRepo.findById(id).get();
+        response.setContentType(article.getImageMimeType());
+        response.getOutputStream().write(article.getImage());
     }
 
     @GetMapping("/categories/{id}")

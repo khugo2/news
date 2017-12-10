@@ -13,7 +13,7 @@
             <a th:each="category : ${categories}" th:text="${category.name}" th:href="@{/categories/{id}(id=${category.id})}"></a>
         </div>
         <a class="article" th:each="article : ${articles}" th:href="@{/articles/{id}(id=${article.id})}">
-            <img src="http://hs.mediadelivery.fi/img/658/6c8b03165f484a13ab6b559540a0018d.jpg.webp"/>
+            <img th:src="@{/articles/{id}/image(id=${article.id})}"/>
             <div class="content">
                 <h2 class="title" th:text="${article.title}"></h2>
                 <h3 class="lead" th:text="${article.lead}"></h3>
