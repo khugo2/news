@@ -2,6 +2,7 @@ package news.service;
 
 import news.domain.Article;
 import news.domain.ViewCounter;
+import news.repository.ArticleRepository;
 import news.repository.ViewCounterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,9 +20,5 @@ public class ViewCounterService {
                 .orElse(new ViewCounter(article, today));
         viewCounter.increment();
         viewCounterRepository.save(viewCounter);
-    }
-
-    public void getViews(Article article) {
-
     }
 }

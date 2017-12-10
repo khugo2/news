@@ -5,6 +5,7 @@ import news.domain.Category;
 import news.repository.ArticleRepository;
 import news.repository.CategoryRepository;
 import news.service.ArticleService;
+import news.service.ViewCounterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,9 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
+    @Autowired
+    private ViewCounterService viewCounterService;
+
     @GetMapping("/")
     public String index(Model model) {
         return "redirect:/categories/latest";
@@ -32,8 +36,11 @@ public class ArticleController {
 
     @GetMapping("/articles/{id}")
     public String articlePage(Model model, @PathVariable Long id) {
+        Article article = articleRepo.findById(id).get();
+        viewCounterService.registerView(article);
+        
         model.addAttribute("categories", categoryRepository.findAll());
-        model.addAttribute("article", articleRepo.findById(id).get());
+        model.addAttribute("article", article);
         model.addAttribute("latestArticles", articleService.findLatestArticles());
         model.addAttribute("popularArticles", articleService.findPopularArticles());
         return "article";
