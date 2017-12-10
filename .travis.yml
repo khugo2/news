@@ -1,1 +1,5 @@
 language: java
+deploy:
+  provider: heroku
+  api_key: $APIKEY
+  app: whispering-mountain-53486
