@@ -15,6 +15,11 @@ a {
     margin: 0 auto;
 }
 
+.content-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .logo {
     font-weight: 300;
     margin-left: auto;
@@ -42,11 +47,12 @@ a {
     flex-direction: column;
     width: 60%;
     background-color: #FFF;
-    box-shadow: 0 0 4px rgba(0,0,0,0.15)
+    box-shadow: 0 0 4px rgba(0,0,0,0.15);
 }
 
 .article.large {
-    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .article .content {
@@ -79,4 +85,63 @@ a {
 
 .article .author {
     margin-bottom: 5px;
+}
+
+.article-list {
+    flex-grow: 1;
+    background-color: #FFF;
+    box-shadow: 0 0 4px rgba(0,0,0,0.15);
+    margin: 20px;
+    height: 790px; /* 10 articles */
+}
+
+.article-list .nav {
+    display: flex;
+    border-bottom: 1px solid #dadada;
+}
+
+.article-list .nav .tab {
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.article-list .nav .tab:first-of-type {
+    border-right: 1px solid #dadada;
+}
+
+.article-list .nav .tab span {
+    padding: 0 5px;
+}
+
+.article-list .nav .tab.selected span {
+    border-bottom: 2px solid #392F5A;
+}
+
+.article-list .list.hidden {
+    display: none;
+}
+
+.article-list .list .list-item {
+    padding: 10px;
+    border-bottom: 1px solid #dadada;
+}
+
+.article-list .list .list-item .title {
+    display: block;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 40px;
+    line-height: 20px;
+}
+
+.article-list .list .list-item .title:hover {
+    color: #BEB2C8;
+}
+
+.article-list .list .list-item .date {
+    margin-top: 2px;
+    font-size: 12px;
 }

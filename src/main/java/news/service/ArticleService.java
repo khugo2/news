@@ -1,16 +1,16 @@
 package news.service;
 
-import news.domain.Author;
-import news.domain.Category;
+import news.domain.Article;
 import news.repository.ArticleRepository;
 import news.repository.AuthorRepository;
 import news.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ArticleService {
@@ -23,7 +23,13 @@ public class ArticleService {
     @Autowired
     private AuthorRepository authorRepository;
 
-    public void createArticle(String title, List<String> authors, List<String> categories) {
+    public List<Article> findLatestArticles() {
+        Pageable lastTen = PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "created"));
+        return articleRepository.findAll(lastTen).getContent();
+    }
 
+    public List<Article> findPopularArticles() {
+        Pageable lastTen = PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "created"));
+        return articleRepository.findAll(lastTen).getContent();
     }
 }

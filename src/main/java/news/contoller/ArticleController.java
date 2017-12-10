@@ -3,6 +3,7 @@ package news.contoller;
 import news.domain.Category;
 import news.repository.ArticleRepository;
 import news.repository.CategoryRepository;
+import news.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,9 @@ public class ArticleController {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private ArticleService articleService;
+
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("articles", articleRepo.findAll());
@@ -28,6 +32,8 @@ public class ArticleController {
     public String articlePage(Model model, @PathVariable Long id) {
         model.addAttribute("categories", categoryRepository.findAll());
         model.addAttribute("article", articleRepo.findById(id).get());
+        model.addAttribute("latestArticles", articleService.findLatestArticles());
+        model.addAttribute("popularArticles", articleService.findPopularArticles());
         return "article";
     }
 

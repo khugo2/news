@@ -53,8 +53,8 @@ public class ArticleAdminController {
                                 @RequestParam(name = "categories") List<Long> categoryIds) {
         Article article = new Article(
                 title,
-                lead,
                 body,
+                lead,
                 categoryIds.stream().map(Category::new).collect(Collectors.toList()),
                 authorIds.stream().map(Author::new).collect(Collectors.toList())
         );
