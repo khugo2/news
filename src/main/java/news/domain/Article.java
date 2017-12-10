@@ -11,6 +11,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,15 +24,20 @@ public class Article extends AbstractPersistable<Long> {
     @Lob
     private String body;
     private String lead;
+    @Lob
+    private byte[] image;
+    private String imageMimeType;
     private LocalDateTime created;
 
-    public Article(String title, String body, String lead, List<Category> categories, List<Author> authors) {
+    public Article(String title, String body, String lead, List<Category> categories, List<Author> authors, byte[] image, String imageMimeType) {
         this.title = title;
         this.body = body;
         this.lead = lead;
         this.categories = categories;
         this.authors = authors;
         this.created = LocalDateTime.now();
+        this.image = image;
+        this.imageMimeType = imageMimeType;
     }
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -55,6 +61,8 @@ public class Article extends AbstractPersistable<Long> {
                 "title='" + title + '\'' +
                 ", body='" + body + '\'' +
                 ", lead='" + lead + '\'' +
+                ", image=byte[" + image.length + "]" +
+                ", imageMimeType='" + imageMimeType + '\'' +
                 ", created=" + created +
                 ", categories=" + categories +
                 ", authors=" + authors +

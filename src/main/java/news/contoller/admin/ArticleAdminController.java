@@ -13,8 +13,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityManager;
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,13 +52,16 @@ public class ArticleAdminController {
                                 @RequestParam String lead,
                                 @RequestParam String body,
                                 @RequestParam(name = "authors") List<Long> authorIds,
-                                @RequestParam(name = "categories") List<Long> categoryIds) {
+                                @RequestParam(name = "categories") List<Long> categoryIds,
+                                @RequestParam MultipartFile image) throws IOException {
         Article article = new Article(
                 title,
                 body,
                 lead,
                 categoryIds.stream().map(Category::new).collect(Collectors.toList()),
-                authorIds.stream().map(Author::new).collect(Collectors.toList())
+                authorIds.stream().map(Author::new).collect(Collectors.toList()),
+                image.getBytes(),
+                image.getContentType()
         );
         articleRepository.save(article);
 

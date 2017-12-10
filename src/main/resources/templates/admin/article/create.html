@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Add a new article:</h1>
-    <form th:fragment="articleForm" method="post" action="/admin/articles">
+    <form enctype="multipart/form-data" method="post" action="/admin/articles">
         <label>
             Title
             <input type="text" name="title"/>
@@ -30,6 +30,10 @@
             <select name="categories" multiple>
                 <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
             </select>
+        </label>
+        <label>
+            Image
+            <input type="file" name="image" />
         </label>
         <input type="submit" value="Submit"/>
     </form>
