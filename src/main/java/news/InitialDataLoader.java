@@ -32,11 +32,11 @@ public class InitialDataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         authorRepository.save(new Author("Author", "1"));
         authorRepository.save(new Author("Author", "2"));
-        categoryRepository.save(new Category("Category 1"));
-        categoryRepository.save(new Category("Category 2"));
-        categoryRepository.save(new Category("Category 3"));
-        categoryRepository.save(new Category("Category 4"));
-        categoryRepository.save(new Category("Category 5"));
+        categoryRepository.save(new Category("Category 1", true));
+        categoryRepository.save(new Category("Category 2", true));
+        categoryRepository.save(new Category("Category 3", true));
+        categoryRepository.save(new Category("Category 4", true));
+        categoryRepository.save(new Category("Category 5", true));
         articleRepository.save(new Article("Suomi haluaa tehostaa ulkovaltojen vakoilulennokkien torjuntaa – sotalaivoillekin havitellaan oikeutta ampua lennokit alas kansainvälisillä vesillä",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",

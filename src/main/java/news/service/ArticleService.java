@@ -2,9 +2,6 @@ package news.service;
 
 import news.domain.Article;
 import news.repository.ArticleRepository;
-import news.repository.AuthorRepository;
-import news.repository.CategoryRepository;
-import news.repository.ViewCounterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,15 +15,6 @@ import java.util.List;
 public class ArticleService {
     @Autowired
     private ArticleRepository articleRepository;
-
-    @Autowired
-    private CategoryRepository categoryRepository;
-
-    @Autowired
-    private AuthorRepository authorRepository;
-
-    @Autowired
-    private ViewCounterRepository viewCounterRepository;
 
     public List<Article> findLatestArticles() {
         Pageable lastTen = PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "created"));

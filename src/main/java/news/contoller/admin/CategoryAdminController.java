@@ -26,8 +26,8 @@ public class CategoryAdminController {
     }
 
     @PostMapping("/admin/categories")
-    public String create(@RequestParam String name) {
-        Category author = new Category(name);
+    public String create(@RequestParam String name, @RequestParam boolean visibleInUI) {
+        Category author = new Category(name, visibleInUI);
         categoryRepository.save(author);
         return "redirect:/admin/categories";
     }

@@ -8,7 +8,7 @@
     <a href="/admin">Back to dashboard</a>
     <h1>Authors</h1>
     <a href="/admin/authors/new">Add a new author</a>
-    <h2>Edit authors:</h2>
+    <h2>List of authors:</h2>
     <ul>
         <li th:each="author : ${authors}" th:text="${author.fullName()}"></li>
     </ul>

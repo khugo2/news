@@ -8,11 +8,24 @@ a {
     text-decoration: none;
 }
 
+.admin-link {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    padding: 10px;
+    border: 2px solid #392F5A;
+}
+
+.admin-link:hover {
+    background-color: #392F5A;
+    color: #FFFFFF;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     width: 50%;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
 }
 
 .content-container {
@@ -119,7 +132,7 @@ a {
     padding: 0 5px;
 }
 
-.article-list .nav .tab.selected span {
+.article-list .nav .tab.selected {
     border-bottom: 2px solid #392F5A;
 }
 
