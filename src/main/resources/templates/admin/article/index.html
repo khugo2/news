@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Manage articles</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <a href="/admin">Back to dashboard</a>
-    <h1>Articles</h1>
-    <a href="/admin/articles/new">Add a new article</a>
-    <h2>List of articles:</h2>
-    <ul>
-        <li th:each="article : ${articles}" th:text="${article}"></li>
-    </ul>
+    <div class="navbar">
+        <a href="/admin">Admin tool</a>
+        <a href="/admin/articles">Articles</a>
+        <a href="/admin/authors">Authors</a>
+        <a href="/admin/categories">Categories</a>
+        <a href="/">Back to site</a>
+    </div>
+    <div class="container">
+        <h1>Manage articles</h1>
+        <a class="button" href="/admin/articles/new">Add a new article</a>
+        <h2>List of articles:</h2>
+        <ul>
+            <li th:each="article : ${articles}" th:text="${article.title}"></li>
+        </ul>
+    </div>
 </body>
 </html>

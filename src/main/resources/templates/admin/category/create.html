@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Add a new category</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h1>Add a new category:</h1>
-<form method="post" action="/admin/categories">
-    <label>
-        Name
-        <input type="text" name="name"/>
-    </label>
-    <label>
-        Visible in UI
-        <input type="checkbox" name="visibleInUI" value="1" />
-        <input type="hidden" name="visibleInUI" value="0"/>
-    </label>
-    <input type="submit" value="Submit"/>
-</form>
+    <div class="navbar">
+        <a href="/admin">Admin tool</a>
+        <a href="/admin/articles">Articles</a>
+        <a href="/admin/authors">Authors</a>
+        <a href="/admin/categories">Categories</a>
+        <a href="/">Back to site</a>
+    </div>
+    <div class="container">
+        <h1>Add a new category</h1>
+        <form method="post" action="/admin/categories">
+            <label>
+                Name
+                <input type="text" name="name"/>
+            </label>
+            <label>
+                Visible in UI
+                <input type="checkbox" name="visibleInUI" value="1" />
+                <input type="hidden" name="visibleInUI" value="0"/>
+            </label>
+            <input class="button" type="submit" value="Submit"/>
+        </form>
+    </div>
 </body>
 </html>

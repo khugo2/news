@@ -3,39 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Add a new article</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <h1>Add a new article:</h1>
-    <form enctype="multipart/form-data" method="post" action="/admin/articles">
-        <label>
-            Title
-            <input type="text" name="title"/>
-        </label>
-        <label>
-            Lead
-            <textarea name="lead"></textarea>
-        </label>
-        <label>
-            Text
-            <textarea name="body"></textarea>
-        </label>
-        <label>
-            Authors
-            <select name="authors" multiple>
-                <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.fullName()}"></option>
-            </select>
-        </label>
-        <label>
-            Categories
-            <select name="categories" multiple>
-                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
-            </select>
-        </label>
-        <label>
-            Image
-            <input type="file" name="image" />
-        </label>
-        <input type="submit" value="Submit"/>
-    </form>
+    <div class="navbar">
+        <a href="/admin">Admin tool</a>
+        <a href="/admin/articles">Articles</a>
+        <a href="/admin/authors">Authors</a>
+        <a href="/admin/categories">Categories</a>
+        <a href="/">Back to site</a>
+    </div>
+    <div class="container">
+        <h1>Add a new article</h1>
+        <form enctype="multipart/form-data" method="post" action="/admin/articles">
+            <label>
+                Title
+                <input type="text" name="title"/>
+            </label>
+            <label>
+                Lead
+                <textarea name="lead"></textarea>
+            </label>
+            <label>
+                Body
+                <textarea name="body"></textarea>
+            </label>
+            <label>
+                Authors
+                <select name="authors" multiple>
+                    <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.fullName()}"></option>
+                </select>
+            </label>
+            <label>
+                Categories
+                <select name="categories" multiple>
+                    <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+                </select>
+            </label>
+            <label>
+                Image
+                <input type="file" name="image" accept="image/*" />
+            </label>
+            <input class="button" type="submit" value="Submit"/>
+        </form>
+    </div>
 </body>
 </html>

@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Add a new author</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h1>Add a new author:</h1>
-<form method="post" action="/admin/authors">
-    <label>
-        First name
-        <input type="text" name="firstName"/>
-    </label>
-    <label>
-        Last name
-        <input type="text" name="lastName"/>
-    </label>
-    <input type="submit" value="Submit"/>
-</form>
+<div class="navbar">
+    <a href="/admin">Admin tool</a>
+    <a href="/admin/articles">Articles</a>
+    <a href="/admin/authors">Authors</a>
+    <a href="/admin/categories">Categories</a>
+    <a href="/">Back to site</a>
+</div>
+<div class="container">
+    <h1>Add a new author</h1>
+    <form method="post" action="/admin/authors">
+        <label>
+            First name
+            <input type="text" name="firstName"/>
+        </label>
+        <label>
+            Last name
+            <input type="text" name="lastName"/>
+        </label>
+        <input class="button" type="submit" value="Submit"/>
+    </form>
+</div>
 </body>
 </html>

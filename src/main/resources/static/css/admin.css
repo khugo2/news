@@ -1,0 +1,91 @@
+body {
+    font-family: 'Roboto', 'sans-serif';
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    margin: 100px auto 10px auto;
+    width: 60%;
+    flex-direction: column;
+}
+
+.navbar {
+    top: 0;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    background-color: #392F5A;
+}
+
+.navbar a {
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #FFFFFF;
+    padding: 20px;
+    border-right: 2px solid #FFFFFF;
+    text-decoration: none;
+}
+
+.navbar a:first-of-type {
+    padding-right: 50px;
+    font-size: 20px;
+}
+
+.navbar a:last-of-type {
+    border: none;
+}
+
+.navbar a:last-of-type {
+    margin-left: auto;
+}
+
+.button {
+    display: inline-block;
+    border: 2px solid #392F5A;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #FFFFFF;
+    color: #392F5A;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #392F5A;
+    color: #FFFFFF;
+}
+
+h1 {
+    margin-bottom: 25px;
+    font-weight: 300;
+    border-bottom: 2px solid #392F5A;
+    padding-bottom: 5px;
+}
+
+h2 {
+    font-weight: 300;
+}
+
+form label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+form label input[type=text],
+form label input[type=file],
+form label select,
+form label textarea {
+    margin-top: 3px;
+    display: block;
+    border: 1px solid #BEB2C8;
+    padding: 10px;
+    width: calc(100% - 20px);
+}
+
+form label textarea {
+    height: 100px;
+}
+
+form label select {
+    width: 100%;
+}
