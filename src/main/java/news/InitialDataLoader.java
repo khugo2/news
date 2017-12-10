@@ -36,14 +36,14 @@ public class InitialDataLoader implements ApplicationRunner {
         articleRepository.save(new Article("Suomi haluaa tehostaa ulkovaltojen vakoilulennokkien torjuntaa – sotalaivoillekin havitellaan oikeutta ampua lennokit alas kansainvälisillä vesillä",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
-                categoryRepository.findAll(), authorRepository.findAll()));
+                categoryRepository.findAll().subList(0, 1), authorRepository.findAll()));
         articleRepository.save(new Article("Suomi haluaa tehostaa ulkovaltojen vakoilulennokkien torjuntaa – sotalaivoillekin havitellaan oikeutta ampua lennokit alas kansainvälisillä vesillä",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
-                categoryRepository.findAll(), authorRepository.findAll()));
+                categoryRepository.findAll().subList(1, 2), authorRepository.findAll()));
         articleRepository.save(new Article("Suomi haluaa tehostaa ulkovaltojen vakoilulennokkien torjuntaa – sotalaivoillekin havitellaan oikeutta ampua lennokit alas kansainvälisillä vesillä",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
-                categoryRepository.findAll(), authorRepository.findAll()));
+                categoryRepository.findAll().subList(2, 3), authorRepository.findAll()));
     }
 }

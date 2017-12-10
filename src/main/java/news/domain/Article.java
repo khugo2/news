@@ -9,7 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
@@ -17,13 +19,13 @@ import java.util.List;
 @NoArgsConstructor
 public class Article extends AbstractPersistable<Long> {
     private String title;
-    private String text;
+    private String body;
     private String lead;
     private LocalDateTime created;
 
-    public Article(String title, String text, String lead, List<Category> categories, List<Author> authors) {
+    public Article(String title, String body, String lead, List<Category> categories, List<Author> authors) {
         this.title = title;
-        this.text = text;
+        this.body = body;
         this.lead = lead;
         this.categories = categories;
         this.authors = authors;
@@ -36,11 +38,20 @@ public class Article extends AbstractPersistable<Long> {
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Author> authors;
 
+    public String formattedAuthors() {
+        return authors.stream().map(Author::fullName).collect(Collectors.joining(", "));
+    }
+
+    public String formattedCreateDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm dd.MM.yyyy");
+        return created.format(formatter);
+    }
+
     @Override
     public String toString() {
         return "Article{" +
                 "title='" + title + '\'' +
-                ", text='" + text + '\'' +
+                ", body='" + body + '\'' +
                 ", lead='" + lead + '\'' +
                 ", created=" + created +
                 ", categories=" + categories +

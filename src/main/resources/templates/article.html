@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${article.title}"></title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="http://localhost:8000/css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container">
+    <h1 class="logo">• Uutiset •</h1>
+    <div class="header">
+        <a th:each="category : ${categories}" th:text="${category.name}" href="#"></a>
+    </div>
+    <div class="article large">
+        <img src="http://hs.mediadelivery.fi/img/658/6c8b03165f484a13ab6b559540a0018d.jpg.webp"/>
+        <div class="content">
+            <h2 class="title" th:text="${article.title}"></h2>
+            <h3 class="lead" th:text="${article.lead}"></h3>
+            <h4 class="author" th:text="${article.formattedAuthors()}"></h4>
+            <span class="date" th:text="${article.formattedCreateDate()}"></span>
+            <p class="body" th:text="${article.body}"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
