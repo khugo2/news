@@ -10,6 +10,8 @@
     <div class="container">
         <h1 class="logo"><a href="/">• Uutiset •</a></h1>
         <div class="header">
+            <a href="/categories/latest">Uusimmat</a>
+            <a href="/categories/popular">Suosituimmat</a>
             <a th:each="category : ${categories}" th:text="${category.name}" th:href="@{/categories/{id}(id=${category.id})}"></a>
         </div>
         <a class="article" th:each="article : ${articles}" th:href="@{/articles/{id}(id=${article.id})}">

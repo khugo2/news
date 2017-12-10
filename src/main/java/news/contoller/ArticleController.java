@@ -27,9 +27,7 @@ public class ArticleController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("articles", articleRepo.findAll());
-        model.addAttribute("categories", categoryRepository.findAll());
-        return "index";
+        return "redirect:/categories/latest";
     }
 
     @GetMapping("/articles/{id}")
@@ -46,6 +44,20 @@ public class ArticleController {
         Article article = articleRepo.findById(id).get();
         response.setContentType(article.getImageMimeType());
         response.getOutputStream().write(article.getImage());
+    }
+
+    @GetMapping("/categories/latest")
+    public String latestPage(Model model) {
+        model.addAttribute("articles", articleService.findLatestArticles());
+        model.addAttribute("categories", categoryRepository.findAll());
+        return "index";
+    }
+
+    @GetMapping("/categories/popular")
+    public String popularPage(Model model) {
+        model.addAttribute("articles", articleService.findPopularArticles());
+        model.addAttribute("categories", categoryRepository.findAll());
+        return "index";
     }
 
     @GetMapping("/categories/{id}")

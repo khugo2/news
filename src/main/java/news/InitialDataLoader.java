@@ -38,8 +38,6 @@ public class InitialDataLoader implements ApplicationRunner {
         categoryRepository.save(new Category("Category 3"));
         categoryRepository.save(new Category("Category 4"));
         categoryRepository.save(new Category("Category 5"));
-        categoryRepository.save(new Category("Category 6"));
-        categoryRepository.save(new Category("Category 7"));
         articleRepository.save(new Article("Suomi haluaa tehostaa ulkovaltojen vakoilulennokkien torjuntaa – sotalaivoillekin havitellaan oikeutta ampua lennokit alas kansainvälisillä vesillä",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
                 "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
