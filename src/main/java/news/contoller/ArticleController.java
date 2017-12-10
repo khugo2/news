@@ -38,7 +38,7 @@ public class ArticleController {
     public String articlePage(Model model, @PathVariable Long id) {
         Article article = articleRepo.findById(id).get();
         viewCounterService.registerView(article);
-        
+
         model.addAttribute("categories", categoryRepository.findAll());
         model.addAttribute("article", article);
         model.addAttribute("latestArticles", articleService.findLatestArticles());
