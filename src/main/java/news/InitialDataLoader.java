@@ -1,5 +1,6 @@
 package news;
 
+import com.google.common.io.ByteStreams;
 import news.domain.Article;
 import news.domain.Author;
 import news.domain.Category;
@@ -57,8 +58,7 @@ public class InitialDataLoader implements ApplicationRunner {
                 "image/webp"));
     }
 
-    private byte[] getImageFixture(String name) throws URISyntaxException, IOException {
-        Path path = Paths.get(getClass().getClassLoader().getResource("fixtures/images/" + name).toURI());
-        return Files.readAllBytes(path);
+    private byte[] getImageFixture(String name) throws IOException {
+        return ByteStreams.toByteArray(getClass().getClassLoader().getResourceAsStream("fixtures/images/" + name));
     }
 }
