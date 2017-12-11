@@ -34,9 +34,15 @@ Klikkaamalla etusivulla oikeassa yläkulmassa olevaa `Admin portal` nappulaa pä
 
 - Artikkeleiden järjestämisen kategorian ja katseluiden perusteella jätin toteuttamatta, sillä tehtävänannosta jäi hieman epäselväksi, oliko se tarpeellista vai ei.
 
+- Admin puolella ei ole muokkaus tai poisto mahdollisuutta
+
+- Virheviestejä ei muotoilla mitenkään
+
 ## Parannusehdotuksia
 
 - Sovellus pitää kirjaa artikkeleiden viimeisen 7 päivän katseluista tallentamalla jokaista päivää kohtaan rivin `ViewCounter` tauluun. Jos katselutilastoista halutaan tarkastella vain viimeisen 7 päivän tilastoja, voitaisiin sitä vanhemmat tilastot poistaa säännöllisin väliajoin, jolloin tietokantakyselyt nopeutuisivat.
+
+- Thymeleaf templatet sisältävät copy-pastea, koska en käyttänyt fragmentteja
 
 ## Asennusohje
 
