@@ -12,7 +12,7 @@
         <div class="header">
             <a href="/categories/latest">Uusimmat</a>
             <a href="/categories/popular">Suosituimmat</a>
-            <a th:each="category : ${categories}" th:if="${category.isVisibleInUI()}" th:text="${category.name}" href="#"></a>
+            <a th:each="category : ${categories}" th:if="${category.isVisibleInUI()}" th:text="${category.name}" th:href="@{/categories/{id}(id=${category.id})}"></a>
         </div>
         <div class="content-container">
             <div class="article large">
