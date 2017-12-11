@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -16,11 +17,13 @@ public class ArticleService {
     @Autowired
     private ArticleRepository articleRepository;
 
+    @Transactional
     public List<Article> findLatestArticles() {
         Pageable lastTen = PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "created"));
         return articleRepository.findAll(lastTen).getContent();
     }
 
+    @Transactional
     public List<Article> findPopularArticles() {
         Pageable lastTen = PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "created"));
         return articleRepository.findByPopularity(LocalDate.now().minusDays(7));
