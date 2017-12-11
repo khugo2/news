@@ -2,7 +2,6 @@ package news.contoller;
 
 import news.domain.Article;
 import news.domain.Category;
-import news.repository.ArticleRepository;
 import news.repository.CategoryRepository;
 import news.service.ArticleService;
 import news.service.ViewCounterService;
@@ -65,7 +64,7 @@ public class ArticleController {
     public String popularPage(Model model, @RequestParam Optional<Integer> page) {
         int newPage = page.orElse(0);
         model.addAttribute("page", newPage);
-        model.addAttribute("articles", articleService.findPopularArticles(0));
+        model.addAttribute("articles", articleService.findPopularArticles(newPage));
         model.addAttribute("categories", categoryRepository.findAll());
         return "index";
     }

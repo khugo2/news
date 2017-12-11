@@ -11,6 +11,9 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
+/**
+ * This class is used to track an article's views for one day.
+ */
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
