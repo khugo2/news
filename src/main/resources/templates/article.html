@@ -22,7 +22,7 @@
                     <h3 class="lead" th:text="${article.lead}"></h3>
                     <h4 class="author" th:text="${article.formattedAuthors()}"></h4>
                     <span class="date" th:text="${article.formattedCreateDate()}"></span>
-                    <p class="body" th:text="${article.body}"></p>
+                    <p class="body" th:each="row : ${article.body.split('\n')}" th:text="${row}"></p>
                 </div>
             </div>
             <div class="article-list">
