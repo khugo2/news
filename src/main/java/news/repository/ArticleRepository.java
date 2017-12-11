@@ -11,9 +11,9 @@ import java.util.List;
 
 public interface ArticleRepository extends JpaRepository<Article, Long> {
     List<Article> findByCategoriesContaining(Category category);
-    @Query(value = "SELECT *, SUM(view_counter.views) as \"totalViews\" FROM article " +
+    @Query(value = "SELECT *, SUM(view_counter.views) as totalViews FROM article " +
                     "LEFT JOIN view_counter ON view_counter.article_id = article.id " +
-                    "WHERE view_counter.id IS NULL OR view_counter.date >= :startDate GROUP BY article.id " +
-                    "ORDER BY totalViews, view_counter.id DESC LIMIT 10 OFFSET 0", nativeQuery = true)
+                    "WHERE view_counter.id IS NULL OR view_counter.date >= :startDate GROUP BY article.id, view_counter.id " +
+                    "ORDER BY totalViews DESC LIMIT 10 OFFSET 0", nativeQuery = true)
     List<Article> findByPopularity(@Param("startDate") LocalDate startDate);
 }

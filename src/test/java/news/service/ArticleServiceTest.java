@@ -75,8 +75,8 @@ public class ArticleServiceTest {
         Article article2 = createArticle();
         List<Article> result = articleService.findPopularArticles();
         assertEquals(result.size(), 2);
-        assertEquals(result.get(0).getId(), article2.getId());
-        assertEquals(result.get(1).getId(), article1.getId());
+        assertEquals(result.get(0).getId(), article1.getId());
+        assertEquals(result.get(1).getId(), article2.getId());
     }
 
     @Test
