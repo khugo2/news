@@ -45,7 +45,7 @@ public class ArticleServiceTest {
         article2.setCreated(LocalDateTime.now());
         articleRepository.save(article2);
 
-        List<Article> result = articleService.findLatestArticles();
+        List<Article> result = articleService.findLatestArticles(0);
         assertEquals(result.size(), 2);
         assertEquals(result.get(0).getId(), article2.getId());
         assertEquals(result.get(1).getId(), article1.getId());
@@ -62,7 +62,7 @@ public class ArticleServiceTest {
         Article article3 = createArticle();
         createViewCounter(article3, LocalDate.now(), 3);
 
-        List<Article> result = articleService.findPopularArticles();
+        List<Article> result = articleService.findPopularArticles(0);
         assertEquals(result.size(), 3);
         assertEquals(result.get(0).getId(), article3.getId());
         assertEquals(result.get(1).getId(), article1.getId());
@@ -73,10 +73,10 @@ public class ArticleServiceTest {
     public void returnsPopularArticlesEvenIfNoViews() {
         Article article1 = createArticle();
         Article article2 = createArticle();
-        List<Article> result = articleService.findPopularArticles();
+        List<Article> result = articleService.findPopularArticles(0);
         assertEquals(result.size(), 2);
-        assertEquals(result.get(0).getId(), article2.getId());
-        assertEquals(result.get(1).getId(), article1.getId());
+        assertEquals(result.get(0).getId(), article1.getId());
+        assertEquals(result.get(1).getId(), article2.getId());
     }
 
     @Test
@@ -88,7 +88,7 @@ public class ArticleServiceTest {
         createViewCounter(article1, LocalDate.now(), 2);
         createViewCounter(article2, LocalDate.now(), 10);
 
-        List<Article> result = articleService.findPopularArticles();
+        List<Article> result = articleService.findPopularArticles(0);
         assertEquals(result.size(), 2);
         assertEquals(result.get(0).getId(), article2.getId());
         assertEquals(result.get(1).getId(), article1.getId());

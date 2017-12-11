@@ -21,6 +21,10 @@
                 <h3 class="lead" th:text="${article.lead}"></h3>
             </div>
         </a>
+        <div class="footer">
+            <a class="left" th:if="${page > 0}" th:href="@{?page={page}(page=${page - 1})}">Edellinen sivu</a>
+            <a class="right" th:if="${articles.size() == 5}" th:href="@{?page={page}(page=${page + 1})}">Seuraava sivu</a>
+        </div>
     </div>
     <a class="admin-link" href="/admin">Admin portal</a>
 </body>

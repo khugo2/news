@@ -52,6 +52,22 @@ a {
     margin-right: 20px;
 }
 
+.footer {
+    margin-top: 20px;
+}
+
+.footer a.left {
+    float: left;
+}
+
+.footer a.right {
+    float: right;
+}
+
+.footer a:hover {
+    color: #392F5A;
+}
+
 .article {
     color: black;
     text-decoration: none;

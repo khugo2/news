@@ -38,27 +38,21 @@ public class InitialDataLoader implements ApplicationRunner {
         categoryRepository.save(new Category("Category 3", true));
         categoryRepository.save(new Category("Category 4", true));
         categoryRepository.save(new Category("Category 5", true));
-        articleRepository.save(new Article("Suomi haluaa tehostaa ulkovaltojen vakoilulennokkien torjuntaa – sotalaivoillekin havitellaan oikeutta ampua lennokit alas kansainvälisillä vesillä",
-                "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
-                "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
-                categoryRepository.findAll().subList(0, 1), authorRepository.findAll(),
-                getImageFixture("image_1.webp"),
-                "image/webp"));
-        articleRepository.save(new Article("Suomi haluaa tehostaa ulkovaltojen vakoilulennokkien torjuntaa – sotalaivoillekin havitellaan oikeutta ampua lennokit alas kansainvälisillä vesillä",
-                "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
-                "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
-                categoryRepository.findAll().subList(1, 2), authorRepository.findAll(),
-                getImageFixture("image_1.webp"),
-                "image/webp"));
-        articleRepository.save(new Article("Suomi haluaa tehostaa ulkovaltojen vakoilulennokkien torjuntaa – sotalaivoillekin havitellaan oikeutta ampua lennokit alas kansainvälisillä vesillä",
-                "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
-                "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
-                categoryRepository.findAll().subList(2, 3), authorRepository.findAll(),
-                getImageFixture("image_1.webp"),
-                "image/webp"));
+        for (int i = 0; i < 20; i++) {
+            addArticle();
+        }
     }
 
     private byte[] getImageFixture(String name) throws IOException {
         return ByteStreams.toByteArray(getClass().getClassLoader().getResourceAsStream("fixtures/images/" + name));
+    }
+
+    private void addArticle() throws IOException {
+        articleRepository.save(new Article("Suomi haluaa tehostaa ulkovaltojen vakoilulennokkien torjuntaa – sotalaivoillekin havitellaan oikeutta ampua lennokit alas kansainvälisillä vesillä",
+            "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
+            "Puolustusvoimat haluaa säädökset lennokkien pakottamiseen alas.",
+            categoryRepository.findAll().subList(2, 3), authorRepository.findAll(),
+            getImageFixture("image_1.webp"),
+            "image/webp"));
     }
 }
